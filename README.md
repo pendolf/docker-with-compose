@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/tiangolo/docker-with-compose.svg?branch=master)](https://travis-ci.org/tiangolo/docker-with-compose)
+[![Build Status](https://travis-ci.org/pendolf/docker-with-compose.svg?branch=master)](https://travis-ci.org/pendolf/docker-with-compose)
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`latest` _(Dockerfile)_](https://github.com/tiangolo/docker-with-compose/blob/master/Dockerfile)
+* [`latest` _(Dockerfile)_](https://github.com/pendolf/docker-with-compose/blob/master/Dockerfile)
 
 # Docker with Docker Compose image
 
@@ -16,21 +16,21 @@ It includes both programs and allows to run arbitrary bash scripts (contrary to 
 
 By not having to install `docker-compose` on top of a `docker:latest` image it can reduce the building time about 10 / 15 seconds in a cloud data center for each build. In environments in where the Internet connection is less good than a cloud provider, the time saved would be more.
 
-**GitHub repo**: <https://github.com/tiangolo/docker-with-compose>
+**GitHub repo**: <https://github.com/pendolf/docker-with-compose>
 
-**Docker Hub image**: <https://hub.docker.com/r/tiangolo/docker-with-compose/>
+**Docker Hub image**: <https://hub.docker.com/r/pendolf/docker-with-compose/>
 
 ## Usage
 
 ```bash
-docker pull tiangolo/docker-with-compose
+docker pull pendolf/docker-with-compose
 ```
 
 ## Problem description
 
-There is an official [Docker image](https://hub.docker.com/_/docker/) that contains the `docker` binary. And there is a [Docker Compose image](https://hub.docker.com/r/docker/compose/). 
+There is an official [Docker image](https://hub.docker.com/_/docker/) that contains the `docker` binary. And there is a [Docker Compose image](https://hub.docker.com/r/docker/compose/).
 
-But the Docker Compose image has `docker-compose` as the entrypoint. 
+But the Docker Compose image has `docker-compose` as the entrypoint.
 
 So, it's not possible to run other commands on that image, like installing something, e.g. `apt-get install -y curl`. 
 
@@ -78,7 +78,7 @@ This image includes Docker Compose and allows you to run any other arbitrary com
 So your GitLab CI `.gitlab-ci.yml` file could then look like:
 
 ```yml
-image: tiangolo/docker-with-compose
+image: pendolf/docker-with-compose
 
 before_script:
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
@@ -95,14 +95,6 @@ ci:
 And it would run faster as it doesn't have to install Docker Compose every time.
 
 The same would apply for Travis, Jenkins or whichever CI system you use.
-
-## Release Notes
-
-## Next Release
-
-* Add Travis CI. PR [#4](https://github.com/tiangolo/docker-with-compose/pull/4).
-
-* Upgrade Docker Compose installation. PR [#3](https://github.com/tiangolo/docker-with-compose/pull/3) by [@boskiv](https://github.com/boskiv).
 
 ## License
 
